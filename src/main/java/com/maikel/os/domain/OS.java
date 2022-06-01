@@ -46,7 +46,7 @@ public class OS {
 		this.setStatus(Status.ABERTO);
 	}
 
-	public OS(Integer id, LocalDateTime dataAbertuda, Prioridade prioridades, String observações, Status status,
+	public OS(Integer id, Prioridade prioridades, String observações, Status status,
 			Tecnico tecnico, Cliente cliente) {
 		super();
 		this.id = id;
