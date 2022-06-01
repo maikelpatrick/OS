@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 import com.maikel.os.domain.enuns.Prioridade;
+import com.maikel.os.domain.enuns.Status;
 
-import ch.qos.logback.core.status.Status;
+
 
 public class OS {
 
@@ -28,7 +29,7 @@ public class OS {
 		this.id = id;
 		this.dataAbertuda = dataAbertuda;
 		this.dataFechamento = dataFechamento;
-		this.prioridades = (prioridade == null)?0 : prioridades.getCodigo();
+		this.prioridades = (prioridades == null)?0 : prioridades.getCodigo();
 		this.observações = observações;
 		this.status = (status == null) ? 0 : status.getCodigo();
 				
@@ -81,7 +82,7 @@ public class OS {
 	}
 
 	public void setPrioridades(Prioridade prioridades) {
-		this.prioridades = prioridades;
+		this.prioridades = prioridades.getCodigo();
 	}
 
 	public void setObservações(String observações) {
@@ -89,7 +90,7 @@ public class OS {
 	}
 
 	public void setStatus(Status status) {
-		this.status = status;
+		this.status = status.getCodigo();	
 	}
 
 	public void setTecnico(Tecnico tecnico) {
