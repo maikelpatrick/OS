@@ -1,6 +1,7 @@
 package com.maikel.os.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
