@@ -3,36 +3,58 @@ package com.maikel.os.domain;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.maikel.os.domain.enuns.Prioridade;
 import com.maikel.os.domain.enuns.Status;
 
-
-
+@Entity
 public class OS {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataAbertuda;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataFechamento;
+	
 	private Integer prioridades;
 	private String observações;
 	private Integer status;
+	
+	@ManyToOne
+	@JoinColumn(name = "tecnico_id")
 	private Tecnico tecnico;
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente	_id")
 	private Cliente cliente;
 
 	public OS() {
 		super();
+		this.setDataAbertuda(LocalDateTime.now());
+		this.setPrioridades(Prioridade.BAIXA);
+		this.setStatus(Status.ABERTO);
 	}
 
-	public OS(Integer id, LocalDateTime dataAbertuda, LocalDateTime dataFechamento, Prioridade prioridades,
-			String observações, Status status, Tecnico tecnico, Cliente cliente) {
+	public OS(Integer id, LocalDateTime dataAbertuda, Prioridade prioridades, String observações, Status status,
+			Tecnico tecnico, Cliente cliente) {
 		super();
 		this.id = id;
-		this.dataAbertuda = dataAbertuda;
-		this.dataFechamento = dataFechamento;
-		this.prioridades = (prioridades == null)?0 : prioridades.getCodigo();
+		this.setDataAbertuda(LocalDateTime.now());
+		this.prioridades = (prioridades == null) ? 0 : prioridades.getCodigo();
 		this.observações = observações;
 		this.status = (status == null) ? 0 : status.getCodigo();
-				
+
 		this.tecnico = tecnico;
 		this.cliente = cliente;
 	}
@@ -90,7 +112,7 @@ public class OS {
 	}
 
 	public void setStatus(Status status) {
-		this.status = status.getCodigo();	
+		this.status = status.getCodigo();
 	}
 
 	public void setTecnico(Tecnico tecnico) {

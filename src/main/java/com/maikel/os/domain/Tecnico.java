@@ -1,6 +1,16 @@
 package com.maikel.os.domain;
 
+import java.util.ArrayList;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Tecnico extends Pessoa {
+	private static final long serialVersionUID = 1L;
+
+	@OneToMany(mappedBy = "tecnico")
+	private List<OS> list = new ArrayList<>();
 
 	public Tecnico() {
 		super();
@@ -8,6 +18,14 @@ public class Tecnico extends Pessoa {
 
 	public Tecnico(Integer id, String nome, String cpf, String telefone) {
 		super(id, nome, cpf, telefone);
+	}
+
+	public List<OS> getList() {
+		return list;
+	}
+
+	public void setList(List<OS> list) {
+		this.list = list;
 	}
 
 }
