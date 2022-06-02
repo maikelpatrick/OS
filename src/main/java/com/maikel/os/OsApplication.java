@@ -42,11 +42,11 @@ public class OsApplication  implements CommandLineRunner{
 		t1.getList().add(os1);
 		c1.getList().add(os1);
 		
-//		tecnicoRepository.saveAll(Arrays.asList(t1));
+		tecnicoRepository.saveAll(Arrays.asList(t1));
 		
-	//	clienteRepository.saveAll(Arrays.asList(c1));
+		clienteRepository.saveAll(Arrays.asList(c1));
 		
-	//	osRepository.saveAll(Arrays.asList(os1));
+		osRepository.saveAll(Arrays.asList(os1));
 		
 	}
 
