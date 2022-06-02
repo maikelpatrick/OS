@@ -51,9 +51,9 @@ public class OS {
 		super();
 		this.id = id;
 		this.setDataAbertuda(LocalDateTime.now());
-		this.prioridades = (prioridades == null) ? 0 : prioridades.getCodigo();
+		this.prioridades = (prioridades == null) ? 0 : prioridades.getCod();
 		this.observações = observações;
-		this.status = (status == null) ? 0 : status.getCodigo();
+		this.status = (status == null) ? 0 : status.getCod();
 
 		this.tecnico = tecnico;
 		this.cliente = cliente;
@@ -104,7 +104,7 @@ public class OS {
 	}
 
 	public void setPrioridades(Prioridade prioridades) {
-		this.prioridades = prioridades.getCodigo();
+		this.prioridades = prioridades.getCod();
 	}
 
 	public void setObservações(String observações) {
@@ -112,7 +112,7 @@ public class OS {
 	}
 
 	public void setStatus(Status status) {
-		this.status = status.getCodigo();
+		this.status = status.getCod();
 	}
 
 	public void setTecnico(Tecnico tecnico) {

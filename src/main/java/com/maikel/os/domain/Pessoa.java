@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-@Entity
+@Entity	(name = "Pessoa")
 public abstract class Pessoa {
 
 	@Id

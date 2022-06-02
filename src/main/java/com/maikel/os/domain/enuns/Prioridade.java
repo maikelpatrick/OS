@@ -4,16 +4,16 @@ public enum Prioridade {
 	
 	BAIXA(0,"BAIXA"),	MEDIA(1,"MEDIA"),	ALTA(2,"ALTA");
 	
-	private Integer codigo;
+	private Integer cod;
 	private String descricao;
 	
-	private Prioridade(Integer codigo, String descricao) {
-		this.codigo = codigo;
+	private Prioridade(Integer cod, String descricao) {
+		this.cod = cod;
 		this.descricao = descricao;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getCod() {
+		return cod;
 	}
 
 	public String getDescricao() {
@@ -26,7 +26,7 @@ public enum Prioridade {
 		}
 		
 		for(Prioridade x: Prioridade.values()) {
-			if(cod.equals(x.getCodigo())) {
+			if(cod.equals(x.getCod())) {
 				return x;
 			}
 		}
