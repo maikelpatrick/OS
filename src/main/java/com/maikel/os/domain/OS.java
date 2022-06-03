@@ -36,7 +36,7 @@ public class OS {
 	private Tecnico tecnico;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente	_id")
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 
 	public OS() {
