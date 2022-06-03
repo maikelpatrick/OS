@@ -2,6 +2,8 @@ package com.maikel.os.dtos;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.maikel.os.domain.Tecnico;
@@ -10,10 +12,15 @@ public class TecnicoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	
+	@NotEmpty(mensage ="O campo é obrigatório")
 	private String nome;
 	
 	@CPF
+	@NotEmpty(mensage ="O campo é obrigatório")
 	private String cpf;
+	
+	@NotEmpty(mensage ="O campo é obrigatório")
 	private String telefone;
 	
 	public TecnicoDTO() {
