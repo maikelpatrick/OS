@@ -13,14 +13,14 @@ public class TecnicoDTO implements Serializable{
 	
 	private Integer id;
 	
-	@NotEmpty(mensage ="O campo é obrigatório")
+	@NotEmpty(message ="O campo NOME é obrigatório")
 	private String nome;
 	
 	@CPF
-	@NotEmpty(mensage ="O campo é obrigatório")
+	@NotEmpty(message ="O campo CPF é obrigatório")
 	private String cpf;
 	
-	@NotEmpty(mensage ="O campo é obrigatório")
+	@NotEmpty(message ="O campo TELEFONE é obrigatório")
 	private String telefone;
 	
 	public TecnicoDTO() {

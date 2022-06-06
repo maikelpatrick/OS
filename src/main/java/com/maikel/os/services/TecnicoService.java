@@ -3,6 +3,8 @@ package com.maikel.os.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +32,23 @@ public class TecnicoService {
 	
 	public Tecnico create(TecnicoDTO objDTO) {
 		if(findByCPF(objDTO)!= null) {
-			throw new DataIntegratyViolationException("CPF já Cadastrado!");			
+			throw new DataIntegratyViolationException("CPF já cadastrado na base de dados!");			
 		}
 		
 		return repository.save(new Tecnico(null,objDTO.getNome(), objDTO.getCpf(), objDTO.getTelefone()));
+	}
+
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		Tecnico oldOBJ = findById(id);
+		
+		if(findByCPF(objDTO) != null && findByCPF(objDTO).getId() != id) {
+			throw new DataIntegratyViolationException("CPF já cadastrado na base de dados!");		
+		}
+		oldOBJ.setNome(objDTO.getNome());
+		oldOBJ.setCpf(objDTO.getCpf());
+		oldOBJ.setTelefone(objDTO.getTelefone());
+		
+		return repository.save(oldOBJ);
 	}
 	
 	private Tecnico findByCPF(TecnicoDTO objDTO){
@@ -43,5 +58,6 @@ public class TecnicoService {
 		}
 		return null;
 	}
+
 
 }
