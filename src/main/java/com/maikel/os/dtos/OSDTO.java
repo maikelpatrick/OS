@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.maikel.os.domain.Cliente;
 import com.maikel.os.domain.OS;
 import com.maikel.os.domain.Tecnico;
+import com.maikel.os.domain.enuns.Prioridade;
+import com.maikel.os.domain.enuns.Status;
 
 public class OSDTO implements Serializable {
 
@@ -71,8 +73,8 @@ public class OSDTO implements Serializable {
 		this.dataFechamento = dataFechamento;
 	}
 
-	public Integer getPrioridades() {
-		return prioridades;
+	public Prioridade getPrioridades() {
+		return Prioridade.toEnum(this.prioridades);
 	}
 
 	public void setPrioridades(Integer prioridades) {
@@ -87,8 +89,8 @@ public class OSDTO implements Serializable {
 		this.observações = observações;
 	}
 
-	public Integer getStatus() {
-		return status;
+	public Status getStatus() {
+		return Status.toEnum(this.status);
 	}
 
 	public void setStatus(Integer status) {
